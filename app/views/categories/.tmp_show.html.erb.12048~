@@ -1,0 +1,39 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>Product Categories </title>
+		<%= stylesheet_link_tag "scaffold" , "depot" , :media => "all" %>
+	</head>
+	
+	<body id="admin" >
+		<div id="banner" >
+			<%= @page_title || "List Of ALL Products" %>
+			</div>
+			<div id="columns" > </div>
+			<p>			
+	<% @products.each do|product| -%>
+	<table>
+	<tr> <img src="<%= product.image_url %>" /> </tr>
+	<tr><h3>	<%= h(product.title) %>		</h3>  </tr>
+	<tr>		<%= product.description %>  </tr> <br>
+	 <tr> 	    <%= product.price %>  </tr>
+	 </table>
+	 
+	 <br>
+<% end %>
+</p>
+ 
+			
+			<div id="main" >
+			<% if flash[:notice] -%>
+			<div id="notice" ><%= flash[:notice] %></div>
+			<% end -%>
+			<%= yield :layout %>
+			</div>
+		</div>
+	</body>
+</html>
+	
+
+		

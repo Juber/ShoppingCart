@@ -1,0 +1,34 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>Administer the Bookstore</title>
+		<%= stylesheet_link_tag "shopping" , "depot" , :media => "all" %>
+		<%= javascript_include_tag :defaults %>
+	</head>
+	
+	<body id="admin" >
+		<div id="banner" >
+			<img src="/images/logo.png" />
+			<%= @page_title || "Online Shopping" %>
+			</div>
+			
+			<div id="columns" >
+			<div id="side" >
+				
+			<p>
+			<%= link_to "Movies" , :controller => 'movies', :action => 'index' %>
+			</p>
+			<p>
+			<%= link_to "Products" , :controller => 'zubair', :action => 'index' %>
+			</p>
+			</div>
+			<div id="main" >
+			<% if flash[:notice] -%>
+			<div id="notice" ><%= flash[:notice] %></div>
+			<% end -%>
+			<%= yield :layout %>
+			</div>
+		</div>
+	</body>
+</html>
+	

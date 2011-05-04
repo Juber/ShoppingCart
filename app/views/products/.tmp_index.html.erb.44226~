@@ -1,0 +1,15 @@
+<h1> List Of ALL Products</h1>
+	<% @products.each do|product| -%>
+	<table>
+	<tr> <img src="<%= product.image_url %>" /> </tr>
+	<tr><h3>	<%= h(product.title) %>		</h3>  </tr>
+	<tr>		<%= product.description %>  </tr> <br>
+	 <tr> 	<%= product.price %>  </tr>
+	 </table>
+	 
+	 <br>
+<% end %>
+
+
+
+		

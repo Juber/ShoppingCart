@@ -1,0 +1,18 @@
+<%= error_messages_for :user %>  
+ <a href="mailto:"></a>
+<% form_for :user do |f| -%>  
+   <p>  
+    Reset Password Request  
+  </p>  
+  
+#   <p>  
+#     <label for="email">Email</label><br />  
+#     <%= f.text_field :email %>  
+#   </p>  
+#   
+#   <p>  
+#     <%= link_to "Cancel", login_path %>  
+#     <%= submit_tag 'Submit' %>  
+#   </p>  
+# <% end -%>  
+

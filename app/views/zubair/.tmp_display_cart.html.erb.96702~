@@ -1,0 +1,41 @@
+
+<table cellpadding="10" cellspacing="0">
+  <tr class="carttitle">
+    <td rowspan="2"> <b> Qty </b></td>
+    <td rowspan="2"> <b> Description </b></td>
+    <td colspan="2"><b> Price </b> </td>
+  </tr>
+  <tr class="carttitle">
+    <td> <b> Each </b> </td>
+    <td> <b>Total</b></td>
+  </tr>
+<% 
+for item in @items 
+  product = item.product
+-%>
+  <tr>
+    <td><%= item.quantity %></td>
+    <td><%= h(product.title) %></td>
+    <td align="right"><%= item.unit_price %></td>
+    <td align="right"><%= item.unit_price * item.quantity %></td>
+  </tr>
+<% end %>
+
+  <tr>
+    <td colspan="3" align="right"><strong>Total:</strong></td>
+    <td id="totalcell"><%= @cart.total_price %></td>
+  </tr>
+  
+  <div id="cartmenu">
+  <table>
+  	<tr>
+  		<td> <%= button_to 'Continue shopping', :action => "index" %> </td>
+			 <% unless params[:context] == :checkout -%>
+			 
+		<td> <%= button_to 'Empty cart',        :action => "empty_cart" %> </td>
+		<td> <%= button_to 'Checkout',          :action => "checkout" %></td>
+		<% end -%>
+  	</tr>
+  </table>
+</div>
+</table>
